@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequency Chart</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="Img/digitalSignal.js"></script>
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 22px;
+            font-weight: lighter;
+        }
+
+        #test-chart {
+            height: 100px;
+            width: 100%;
+            background-color: gray;
+        }
+
+        .chart-line {
+            height: 100%;
+            width: 100%;
+            background-color: #333;
+        }
+    </style>
+    <script>
+        function UUIDv4() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+                .replace(/[xy]/g, function (c) {
+                    const r = Math.random() * 16 | 0,
+                        v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+        }
+
+        Array.prototype.extend = function (other_array) {
+            other_array.forEach(function (v) { this.push(v) }, this);
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2>Частоти</h2>
+    <div id="chart"></div>
+</body>
+
+
+<script type="text/javascript"
+    src="https://visjs.github.io/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
+<script src="chart.js"></script>
+<script src="Data/known.js"></script>
+<script src="Data/uav.js"></script>
+
+</html>

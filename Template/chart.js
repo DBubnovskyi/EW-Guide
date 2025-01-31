@@ -34,11 +34,12 @@ function generateBackground(title, content,  start, end, className, group = 0, i
 // year: 'year'
 
 let options = {
-  start: 885000,
-  end: 940000,
+  start: 800000,
+  end: 1600000,
   min: 0,
   max: 8000000,
   zoomMax: 1000 * 60 * 60 * 24 * 7, // Maximum zoom level set to one week
+  margin: { item: 0 },
   format: {
     minorLabels: function (date, scale, step) {
       switch (scale) {
@@ -66,11 +67,12 @@ let options = {
 
 var groups;
 var items;
+var timeline;
 document.addEventListener("DOMContentLoaded", ()=>{
   groups = new vis.DataSet(dataSets);
   items = new vis.DataSet(itemsSets);
 
-  var timeline = new vis.Timeline(container, items, groups, options);
+  timeline = new vis.Timeline(container, items, groups, options);
   
   timeline.on('click', function (properties) {
     if (properties.item) {
@@ -79,3 +81,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
   });
 });
+
+//var s = items.get().filter(x => x.content !== "Суперкам");
+//timeline.setItems(s)
+//items.get().filter(x => x.content === "Суперкам")

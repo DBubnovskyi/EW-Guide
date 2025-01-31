@@ -29,7 +29,7 @@ dataSets.extend([{
 },
 {
     id: UUID(20),
-    content: "Національна таблиця розподілу смуг радіочастот України",
+    content: "Національна таблиця</br>розподілу смуг</br>радіочастот України",
     treeLevel: 2,
     nestedGroups: [UUID(21), UUID(22)],
     showNested: false,

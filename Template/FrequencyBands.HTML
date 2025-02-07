@@ -5,166 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frequency Chart</title>
-    <link rel="stylesheet" href="main.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="icon" type="image/x-icon" href="Img/graphic.ico">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/topNav.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="Img/digitalSignal.js"></script>
     <style>
-        html {
-            font-family: sans-serif;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 22px;
-            font-weight: lighter;
-        }
-
-        #test-chart {
-            height: 100px;
-            width: 100%;
-            background-color: gray;
-        }
-
-        .chart-line {
-            height: 100%;
-            width: 100%;
-            background-color: #333;
-        }
-
-
-        .blueberry-season {
-            background: linear-gradient(44.96deg, #003D79 0%, #126DFF 100%) !important;
-            text-align: center;
-            color: #fff !important;
-            font-size: 12px;
-            padding: .5em;
-            border: 0px;
-            /* clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px; */
-        }
-
-        .green-season {
-            background: linear-gradient(44.96deg, #7db613 0%, #5fac21 100%) !important;
-            text-align: center;
-            color: #fff !important;
-            font-size: 12px;
-            padding: .5em;
-            border: 0px;
-        }
-
-        .yellow-season {
-            background: linear-gradient(44.96deg, #d3b300 0%, #e6c50c 100%) !important;
-            text-align: center;
-            color: #fff !important;
-            font-size: 12px;
-            padding: .5em;
-            border: 0px;
-        }
-
-        .blue-season {
-            background: linear-gradient(44.96deg, #006cc5 0%, #0c7bd6 100%) !important;
-            text-align: center;
-            color: #fff !important;
-            font-size: 12px;
-            padding: .5em;
-            border: 0px;
-        }
-
-        .red-season {
-            background: linear-gradient(45deg, #d83209 0%, #e48304 100%) !important;
-            text-align: center;
-            color: #fff !important;
-            font-size: 12px;
-            padding: .5em;
-            border: 0px;
-        }
-
-        .gray-season {
-            background: #d0dfe9 !important;
-            text-align: center;
-            color: #fff !important;
-            font-size: 12px;
-            padding: .5em;
-            border: 0px;
-        }
-
-        .default-season {
-            text-align: center;
-            font-size: 12px;
-            padding: .5em;
-            border: 0px;
-        }
-
-        .opacity-03 {
-            opacity: 0.1;
-        }
-
-        .transparent-season {
-            background: #ffffff00;
-            text-align: center;
-            font-size: 12px;
-            padding: .5em;
-            border: 0px;
-        }
-
-        body .vis-item.vis-range {
-            border-radius: 0;
-            cursor: pointer;
-            border: none;
-        }
-
-        .vis-item.vis-range:hover {
-            opacity: 0.8;
-        }
-
-        .vis-item-content img {
-            width: 15px;
-            position: absolute;
-            right: 42px;
-        }
-
-        .vis-item-content p {
-            margin: 0;
-        }
-
-        .vis-item-content span {
-            padding: 3px 10px;
-            background-color: #adad18;
-            color: black;
-            font-size: 10px;
-        }
-
-        .vis-item-content .start {
-            margin: 0 5px 0 0;
-            border-radius: 10px 0 0 10px;
-        }
-
-        .vis-item-content .mid {
-            border-radius: 0;
-            margin: 0;
-        }
-
-        .vis-item-content .end {
-            margin: 0 0 0 0;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .vis-timeline .vis-tooltip {
-            position: fixed;
-            font-size: 12px;
-        }
-
-        .vis-timeline .vis-tooltip h1,
-        .vis-timeline .vis-tooltip h2,
-        .vis-timeline .vis-tooltip h3,
-        .vis-timeline .vis-tooltip h4,
-        .vis-timeline .vis-tooltip h5,
-        .vis-timeline .vis-tooltip h6,
-        .vis-timeline .vis-tooltip p {
-            margin: 0;
-        }
     </style>
     <script>
         function UUIDv4() {
@@ -179,20 +24,53 @@
         Array.prototype.extend = function (other_array) {
             other_array.forEach(function (v) { this.push(v) }, this);
         }
-
     </script>
 </head>
 
-<body>
-    <h2>Частоти</h2>
+<body class="dark">
+    <div class="topnav">
+        <!-- <button onclick="showAllGroups()">відобразити всі приховані</button> -->
+        <button onclick="toggleBackground()">приховати фонові</button>
+        <button class="right" theme>Тема</button>
+    </div>
     <div id="chart"></div>
 </body>
-
 
 <script type="text/javascript"
     src="https://visjs.github.io/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
 <script type="text/javascript" src="chart.js"></script>
 <script type="text/javascript" src="Data/known.js"></script>
 <script type="text/javascript" src="Data/uav.js"></script>
+<script type="text/javascript" src="Data/EW.js"></script>
+
+<link rel="stylesheet" href="style/main.css">
+<link rel="stylesheet" href="style/tableElements.css">
+
+<link rel="stylesheet" href="style/light.css">
+<link rel="stylesheet" href="style/dark.css">
+
+<script>
+    $('[theme]').click(function () {
+        $('body').toggleClass('light').toggleClass('dark');
+    });
+
+    function showAllGroups() {
+        groups.forEach(function (group) {
+            groups.update({ id: group.id, visible: true });
+        });
+        items = new vis.DataSet(itemsSets);
+    }
+
+    var s = itemsSets;
+    function toggleBackground() {
+        if(!!s.find(x => x.key !== undefined)){
+            s = itemsSets.filter(x => x.key === undefined);
+        }
+        else{
+            s = itemsSets;
+        }
+        timeline.setItems(s);
+    }
+</script>
 
 </html>

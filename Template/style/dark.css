@@ -1,0 +1,64 @@
+:root {
+  --blue: #20a8d8;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #f86c6b;
+  --orange: #f8cb00;
+  --yellow: #ffc107;
+  --green: #4dbd74;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #646464;
+  --gray-dark: #2f353a;
+  --light-blue: #63c2de;
+  --primary: #20a8d8;
+  --secondary: #73818f;
+  --success: #4dbd74;
+  --info: #63c2de;
+  --warning: #ffc107;
+  --danger: #f86c6b;
+  --light: #c5c5c5;
+  --dark: #2f353a;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+body.dark
+{
+    background: var(--dark);
+}
+
+body.dark .vis-panel.vis-bottom
+{
+    background: var(--dark);
+}
+
+body.dark .vis-time-axis .vis-text {
+    color: var(--light);
+    border-left: 1px solid var(--gray);
+}
+
+body.dark .vis-labelset .vis-label{
+  color: var(--light);
+}
+
+body.dark .vis-label.vis-nested-group.vis-group-level-2 {
+  background-color: rgba(255, 255, 255, .1);
+}
+
+body.dark .vis-label.vis-nested-group.vis-group-level-3 {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+body.dark .vis-time-axis .vis-grid.vis-minor {
+  border-color: var(--gray);
+} 
+
+body.dark .vis-foreground .vis-group {
+  border-bottom: 1px solid var(--gray);
+}

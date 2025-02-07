@@ -1,0 +1,16 @@
+body.light .vis-time-axis .vis-text {
+    overflow: visible;
+}
+
+body.light .vis-time-axis .vis-text {
+    overflow: visible;
+}
+
+body.light.timeline-vertical .vis-time-axis .vis-text {
+    border-left: 0 solid;
+    overflow: visible;
+}
+
+body.light.timeline-vertical .vis-text.vis-minor > div{
+    background: white;
+}

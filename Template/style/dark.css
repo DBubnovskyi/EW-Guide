@@ -43,16 +43,43 @@ body.dark .vis-time-axis .vis-text {
     border-left: 1px solid var(--gray);
 }
 
+body.dark.timeline-vertical .vis-time-axis .vis-text {
+    color: var(--light);
+    border-left: 0;
+    overflow: visible;
+}
+
+body.dark .vis-text.vis-minor > div{
+  background: var(--dark);
+}
+
 body.dark .vis-labelset .vis-label{
   color: var(--light);
 }
 
 body.dark .vis-label.vis-nested-group.vis-group-level-2 {
   background-color: rgba(255, 255, 255, .1);
+  color: var(--light);
 }
 
 body.dark .vis-label.vis-nested-group.vis-group-level-3 {
   background-color: rgba(255, 255, 255, .2);
+  color: var(--light);
+}
+
+body.dark .vis-label.vis-nested-group.vis-group-level-4 {
+  background-color: rgba(255, 255, 255, .3);
+  color: var(--light);
+}
+
+body.dark .vis-label.vis-nested-group.vis-group-level-5 {
+  background-color: rgba(255, 255, 255, .4);
+  color: var(--dark);
+}
+
+body.dark .vis-label.vis-nested-group.vis-group-level-6 {
+  background-color: rgba(255, 255, 255, .5);
+  color: var(--dark);
 }
 
 body.dark .vis-time-axis .vis-grid.vis-minor {

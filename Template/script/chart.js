@@ -45,6 +45,10 @@ function generateBand(title, content,  start, end, className, group = 0, isCente
   itemsSets.push({ content, start, end, className, title: `<div>${title} ${content} ${kHzToMHz(start)}-${kHzToMHz(end)} MHz</div>`, group });
 }
 
+function generateBandV2(title, content,  start, end, className, group = 0){ 
+  itemsSets.push({ content: `${content} ${(start+end)/2000}`, start, end, className, title: `<div>${title} ${content} ${kHzToMHz(start)}-${kHzToMHz(end)} MHz</div>`, group });
+}
+
 // millisecond: 'millisecond',
 // second: 'second',
 // minute: 'minute',
@@ -56,6 +60,7 @@ function generateBand(title, content,  start, end, className, group = 0, isCente
 // year: 'year'
 
 let options = {
+  minHeight: 350,
   start: 800000,
   end: 1600000,
   min: 0,
@@ -78,27 +83,18 @@ let options = {
   //   return container;
   // },
   format: {
-    minorLabels: function (date, scale, step) {
+    minorLabels: (date, scale, step) => {
+      console.log(scale, step)
       switch (scale) {
         case 'millisecond':
-          return +(Math.round((new Date(date).getTime()/ 1000) + "e+2")  + "e-2") + " МГц";
+          return `<div>${+(Math.round((new Date(date).getTime()/ 1000) + "e+2")  + "e-2") + " МГц"}</div>`;
         case 'second':
-          return Math.round(new Date(date).getTime() / 1000) + " МГц";
+          return `<div>${Math.round(new Date(date).getTime() / 1000) + " МГц"}</div>`;
         case 'minute':
-          return +(Math.round((new Date(date).getTime()/ 1000000) + "e+2")  + "e-2") + " ГГц";
+          return `<div>${+(Math.round((new Date(date).getTime()/ 1000000) + "e+2")  + "e-2") + " ГГц"}</div>`;
       }
     },
-    majorLabels: {
-      millisecond: '',
-      second: '',
-      minute: '',
-      hour: '',
-      weekday: '',
-      day: '',
-      week: '',
-      month: '',
-      year: ''
-    }
+    majorLabels: (date, scale, step) => ``
   }
 };
 

@@ -148,3 +148,23 @@ table tbody tr td:first-child {
     max-width: 350px;
     text-wrap: initial;
 }
+
+body.timeline-vertical .vis-text.vis-minor > div{
+    position: absolute;
+    rotate: 90deg;
+    top: 44px;
+    left: -56px;
+    height: 20px;
+    width: 100px;
+    text-align: left;
+    padding: 5px;
+}
+
+body.timeline-vertical .vis-time-axis{
+    min-height: 100px;
+}
+
+body.timeline-vertical .vis-timeline {
+    border: none;
+}
+

@@ -21,6 +21,7 @@
   --danger: #f86c6b;
   --light: #c5c5c5;
   --dark: #2f353a;
+  --dark-black: #333;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -28,32 +29,30 @@
   --breakpoint-xl: 1200px;
 }
 
-body.dark
-{
-    background: var(--dark);
+body.dark {
+  background: var(--dark);
 }
 
-body.dark .vis-panel.vis-bottom
-{
-    background: var(--dark);
+body.dark .vis-panel.vis-bottom {
+  background: var(--dark);
 }
 
 body.dark .vis-time-axis .vis-text {
-    color: var(--light);
-    border-left: 1px solid var(--gray);
+  color: var(--light);
+  border-left: 1px solid var(--gray);
 }
 
 body.dark.timeline-vertical .vis-time-axis .vis-text {
-    color: var(--light);
-    border-left: 0;
-    overflow: visible;
+  color: var(--light);
+  border-left: 0;
+  overflow: visible;
 }
 
 body.dark .vis-text.vis-minor > div{
   background: var(--dark);
 }
 
-body.dark .vis-labelset .vis-label{
+body.dark .vis-labelset .vis-label {
   color: var(--light);
 }
 
@@ -84,7 +83,7 @@ body.dark .vis-label.vis-nested-group.vis-group-level-6 {
 
 body.dark .vis-time-axis .vis-grid.vis-minor {
   border-color: var(--gray);
-} 
+}
 
 body.dark .vis-foreground .vis-group {
   border-bottom: 1px solid var(--gray);

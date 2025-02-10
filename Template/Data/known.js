@@ -6,8 +6,13 @@ uuid.set(13, UUIDv4());
 uuid.set(20, UUIDv4());
 uuid.set(21, UUIDv4());
 uuid.set(22, UUIDv4());
+uuid.set(30, UUIDv4());
+uuid.set(31, UUIDv4());
+uuid.set(32, UUIDv4());
+uuid.set(33, UUIDv4());
 
-dataSets.extend([{
+
+let tabs = [{
     id: UUID(1),
     content: "Довідкові",
     treeLevel: 1,
@@ -25,6 +30,28 @@ dataSets.extend([{
     id: UUID(11),
     content: "GNSS",
     treeLevel: 3,
+    nestedGroups: [UUID(30), UUID(31), UUID(32), UUID(33)],
+    showNested: false,
+},
+{
+    id: UUID(30),
+    content: "GPS",
+    treeLevel: 4,
+},
+{
+    id: UUID(31),
+    content: "GALILEO",
+    treeLevel: 4,
+},
+{
+    id: UUID(32),
+    content: "GLONASS",
+    treeLevel: 4,
+},
+{
+    id: UUID(33),
+    content: "BEIDOU",
+    treeLevel: 4,
 },
 {
     id: UUID(12),
@@ -52,29 +79,30 @@ dataSets.extend([{
     id: UUID(22),
     content: "Спеціальні користувачі",
     treeLevel: 3,
-}]);
+}]
+dataSets.extend(tabs);
 
 
 //DJI
 //https://www.dji.com/transmission/specs
 //https://www.getfpv.com/learn/fpv-essentials/fpv-frequency-reference-chart/
-generateBGwith03("public broadcast", "DJI", 1166220, 1186680, 'yellow-season', UUID(11));
+//generateBGwith03("public broadcast", "DJI", 1166220, 1186680, 'yellow-season', UUID(11));
 
 //GNSS
-generateBGwith03("GPS", "L5", 1166220, 1186680, 'yellow-season', UUID(11));
-generateBGwith03("GPS", "L2", 1217370, 1237830, 'yellow-season', UUID(11));
-generateBGwith03("GPS", "L1", 1565190, 1585650, 'yellow-season', UUID(11));
-generateBGwith03("GALILEO", "E1", 1563140, 1587700, 'blue-season', UUID(11));
-generateBGwith03("GALILEO", "E6", 1258290, 1299050, 'blue-season', UUID(11));
-generateBGwith03("GALILEO", "E5a", 1166220, 1189000, 'blue-season', UUID(11));
-generateBGwith03("GALILEO", "E5b", 1189000, 1214000, 'blue-season', UUID(11));
-generateBGwith03("GLONASS", "G1", 1593000, 1610000, 'red-season', UUID(11));
-generateBGwith03("GLONASS", "G2", 1237000, 1254000, 'red-season', UUID(11));
-generateBGwith03("GLONASS", "G3", 1189000, 1214000, 'red-season', UUID(11));
-generateBGwith03("BEIDOU", "B1", 1561000, 1589000, 'green-season', UUID(11));
-generateBGwith03("BEIDOU", "B2a", 1166220, 1188450, 'green-season', UUID(11));
-generateBGwith03("BEIDOU", "B2/B2b", 1176000, 1200000, 'green-season', UUID(11));
-generateBGwith03("BEIDOU", "B3", 1258290, 1278000, 'green-season', UUID(11));
+generateBGwith03("GPS", "L5", 1166220, 1186680, 'yellow-season', UUID(30));
+generateBGwith03("GPS", "L2", 1217370, 1237830, 'yellow-season', UUID(30));
+generateBGwith03("GPS", "L1", 1565190, 1585650, 'yellow-season', UUID(30));
+generateBGwith03("GALILEO", "E1", 1563140, 1587700, 'blue-season', UUID(31));
+generateBGwith03("GALILEO", "E6", 1258290, 1299050, 'blue-season', UUID(31));
+generateBGwith03("GALILEO", "E5a", 1166220, 1189000, 'blue-season', UUID(31));
+generateBGwith03("GALILEO", "E5b", 1189000, 1214000, 'blue-season', UUID(31));
+generateBGwith03("GLONASS", "G1", 1593000, 1610000, 'red-season', UUID(32));
+generateBGwith03("GLONASS", "G2", 1237000, 1254000, 'red-season', UUID(32));
+generateBGwith03("GLONASS", "G3", 1189000, 1214000, 'red-season', UUID(32));
+generateBGwith03("BEIDOU", "B1", 1561000, 1589000, 'green-season', UUID(33));
+generateBGwith03("BEIDOU", "B2a", 1166220, 1188450, 'green-season', UUID(33));
+generateBGwith03("BEIDOU", "B2/B2b", 1176000, 1200000, 'green-season', UUID(33));
+generateBGwith03("BEIDOU", "B3", 1258290, 1278000, 'green-season', UUID(33));
 
 //Wi-Fi
 //https://www.lancom-systems.com/technology/wifi-7

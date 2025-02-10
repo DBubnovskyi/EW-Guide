@@ -1,0 +1,100 @@
+
+body .vis-item.vis-range {
+    border-radius: 0;
+    cursor: pointer;
+    border: none;
+}
+
+.vis-item.vis-range:hover {
+    opacity: 0.8;
+}
+
+.vis-item-content img {
+    width: 15px;
+    position: absolute;
+    right: 42px;
+}
+
+.vis-item-content p {
+    margin: 0;
+}
+
+.vis-item-content span {
+    padding: 3px 10px;
+    background-color: #adad18;
+    color: black;
+    font-size: 10px;
+}
+
+.vis-item-content .start {
+    margin: 0 5px 0 0;
+    border-radius: 10px 0 0 10px;
+}
+
+.vis-item-content .mid {
+    border-radius: 0;
+    margin: 0;
+}
+
+.vis-item-content .end {
+    margin: 0 0 0 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.vis-timeline .vis-tooltip {
+    position: fixed;
+    font-size: 12px;
+}
+
+.vis-timeline .vis-tooltip h1,
+.vis-timeline .vis-tooltip h2,
+.vis-timeline .vis-tooltip h3,
+.vis-timeline .vis-tooltip h4,
+.vis-timeline .vis-tooltip h5,
+.vis-timeline .vis-tooltip h6,
+.vis-timeline .vis-tooltip p {
+    margin: 0;
+}
+
+table tbody tr td:first-child {
+    padding-right: 15px;
+}
+
+.vis-tooltip div{
+    max-width: 350px;
+    text-wrap: initial;
+}
+
+body.timeline-vertical .vis-text > div{
+    position: absolute;
+    rotate: -90deg;
+    left: -53px;
+    height: 20px;
+    width: 100px;
+    text-align: left;
+    padding: 5px;
+}
+
+body.timeline-vertical .vis-panel.vis-top .vis-time-axis.vis-foreground >.vis-text > div{
+    top: 15px;
+}
+
+body.timeline-vertical .vis-panel.vis-bottom .vis-time-axis.vis-foreground >.vis-text > div{
+    top: 41px;
+    text-align: right;
+}
+
+/* body.timeline-vertical .vis-bottom .vis-panel.vis-bottom .vis-time-axis.vis-foreground >.vis-text > div{
+    rotate: 90deg;    
+    top: 44px;
+    text-align: left;
+} */
+
+
+body.timeline-vertical .vis-time-axis{
+    min-height: 110px;
+}
+
+body.timeline-vertical .vis-timeline {
+    border: none;
+}

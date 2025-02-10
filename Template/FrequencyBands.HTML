@@ -7,7 +7,7 @@
     <title>Frequency Chart</title>
     <link rel="icon" type="image/x-icon" href="Img/graphic.ico">
     <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="style/topNav.css">
+    <link rel="stylesheet" href="style/top-nav.css">
     <script type="text/javascript" src="script/jquery-3.7.1.min.js"></script>
     <style>
     </style>
@@ -31,9 +31,16 @@
     <div class="topnav">
         <!-- <button onclick="showAllGroups()">відобразити всі приховані</button> -->
         <button onclick="toggleBackground()">приховати фонові</button>
+        <label style="margin-left: 15px; width: 35px; text-align: left;">start:</label>
+        <input start style="margin-left: 0px; width: 85px; text-align: left;"/>
+        <label style="margin-left: 15px; width: 35px; text-align: left;">end:</label>
+        <input end  style="margin-left: 0px; width: 85px; text-align: left;"/>
+        <label style="margin-left: 15px; width: 35px; text-align: left;">span:</label>
+        <input span style="margin-left: 0px; width: 85px; text-align: left;"/>
         <button class="right" theme>Тема</button>
     </div>
     <div id="chart"></div>
+    <div id="graph"></div>
 </body>
 
 <script type="text/javascript" src="script/vis-timeline-graph2d.min.js"></script>
@@ -43,8 +50,9 @@
 <script type="text/javascript" src="data/EW.js"></script>
 
 <link rel="stylesheet" href="style/main.css">
-<link rel="stylesheet" href="style/tableElements.css">
+<link rel="stylesheet" href="style/elements.css">
 
+<link rel="stylesheet" href="style/table.css">
 <link rel="stylesheet" href="style/light.css">
 <link rel="stylesheet" href="style/dark.css">
 

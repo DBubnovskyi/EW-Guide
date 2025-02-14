@@ -4,7 +4,11 @@ function kHzToMHz(kHz) {
   return kHz / 1000;
 }
 
-function UUID(index) {
+function MHzTokHz(MHz) {
+  return MHz * 1000;
+}
+
+function UUID(index){
   return uuid.get(index);
 }
 
@@ -45,8 +49,8 @@ function generateBand(title, content, start, end, className, group = 0, isCenter
   itemsSets.push({ content, start, end, className, title: `<div>${title} ${content} ${kHzToMHz(start)}-${kHzToMHz(end)} MHz</div>`, group });
 }
 
-function generateBandV2(title, content, start, end, className, group = 0) {
-  itemsSets.push({ content: `${content} ${(start + end) / 2000}`, start, end, className, title: `<div>${title} ${content} ${kHzToMHz(start)}-${kHzToMHz(end)} MHz</div>`, group });
+function generateBandV2(title, content,  start, end, className, group = 0){ 
+  itemsSets.push({ content: `${content} ${(start+end)/2000}`, start, end, className, title: `<div><p>${title} ${content} ${kHzToMHz(start)}-${kHzToMHz(end)} MHz<p></div>`, group });
 }
 
 // millisecond: 'millisecond',

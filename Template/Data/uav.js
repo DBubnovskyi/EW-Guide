@@ -159,75 +159,63 @@ function addQuad(name, start, end, band, type, id, className = `blueberry-season
   itemsSets.push({ content: name, start, end, className, group, title });
 }
 
+function addQuadVideo(content, center, className, group = 0, header = `аналогове відео`) {
+  let start = center - 4;
+  let end = center + 4;
+  let title = `<div>
+      <h4>Канал ${content} ${header}</h4>
+      <p>Центральна ${center} MHz</p>
+      <p>Ширина ${(end - start)} MHz</p> 
+      <p>Діапазон ${start}-${end} MHz<p>
+    </div>`;
+
+  addQuadV2(title, content, MHzTokHz(start), MHzTokHz(end), className, group, header);
+}
+
+function addQuadV2(title, content, start, end, className, group = 0, header = `Аналогове відео`) {
+  itemsSets.push({ content: `${content}`, start, end, className, title, group });
+}
+
 //Загальні
-generateBandV2("Діапазон каналів аналогового FPV відео на 5.8ГГц", "Аналогове відео на 5.8", 4990000, 5953000, 'green-season', UUID(2110), false)
+generateBand("Діапазон каналів аналогового FPV відео на 5.8ГГц", "Аналогове відео на 5.8", 4990000, 5953000, 'green-season analog', UUID(2110), false)
 
-generateBandV2("1 Канал FPV відео", "А1", 5861000, 5869000, 'green-season', UUID(2111), true)
-generateBandV2("2 Канал FPV відео", "А2", 5844000, 5849000, 'green-season', UUID(2111), true)
-generateBandV2("3 Канал FPV відео", "А3", 5825000, 5833000, 'green-season', UUID(2111), true)
-generateBandV2("4 Канал FPV відео", "А4", 5805000, 5813000, 'green-season', UUID(2111), true)
-generateBandV2("5 Канал FPV відео", "А5", 5785000, 5793000, 'green-season', UUID(2111), true)
-generateBandV2("6 Канал FPV відео", "А6", 5765000, 5773000, 'green-season', UUID(2111), true)
-generateBandV2("7 Канал FPV відео", "А7", 5745000, 5753000, 'green-season', UUID(2111), true)
-generateBandV2("8 Канал FPV відео", "А8", 5725000, 5733000, 'green-season', UUID(2111), true)
+function UUID_video(channel) {
+  const uuids = {
+    "A": 2111,
+    "B": 2112,
+    "E": 2113,
+    "F": 2114,
+    "R": 2115,
+    "L": 2116,
+    "X": 2117
+  };
+  return uuids[channel];
+}
 
-generateBandV2("1 Канал FPV відео", "B1", 5733000, 5741000, 'green-season', UUID(2112), true)
-generateBandV2("2 Канал FPV відео", "B2", 5752000, 5759000, 'green-season', UUID(2112), true)
-generateBandV2("3 Канал FPV відео", "B3", 5771000, 5779000, 'green-season', UUID(2112), true)
-generateBandV2("4 Канал FPV відео", "B4", 5790000, 5797000, 'green-season', UUID(2112), true)
-generateBandV2("5 Канал FPV відео", "B5", 5809000, 5817000, 'green-season', UUID(2112), true)
-generateBandV2("6 Канал FPV відео", "B6", 5828000, 5835000, 'green-season', UUID(2112), true)
-generateBandV2("7 Канал FPV відео", "B7", 5847000, 5855000, 'green-season', UUID(2112), true)
-generateBandV2("8 Канал FPV відео", "B8", 5866000, 5873000, 'green-season', UUID(2112), true)
+// Таблиця каналів та частот
+const channels = {
+  "A": [5865, 5845, 5825, 5805, 5785, 5765, 5745, 5725],
+  "B": [5733, 5752, 5771, 5790, 5809, 5828, 5847, 5866],
+  "E": [5705, 5685, 5665, 5645, 5885, 5905, 5925, 5945],
+  "F": [5740, 5760, 5780, 5800, 5820, 5840, 5860, 5880],
+  "R": [5658, 5695, 5732, 5769, 5806, 5843, 5880, 5917],
+  "L": [5362, 5399, 5436, 5473, 5510, 5547, 5584, 5621],
+  "X": [4990, 5020, 5050, 5080, 5110, 5140, 5170, 5200]
+};
 
-generateBandV2("1 Канал FPV відео", "E1", 5705000, 5713000, 'green-season', UUID(2113), true)
-generateBandV2("2 Канал FPV відео", "E2", 5685000, 5693000, 'green-season', UUID(2113), true)
-generateBandV2("3 Канал FPV відео", "E3", 5665000, 5673000, 'green-season', UUID(2113), true)
-generateBandV2("4 Канал FPV відео", "E4", 5645000, 5653000, 'green-season', UUID(2113), true)
-generateBandV2("5 Канал FPV відео", "E5", 5885000, 5893000, 'green-season', UUID(2113), true)
-generateBandV2("6 Канал FPV відео", "E6", 5905000, 5913000, 'green-season', UUID(2113), true)
-generateBandV2("7 Канал FPV відео", "E7", 5925000, 5933000, 'green-season', UUID(2113), true)
-generateBandV2("8 Канал FPV відео", "E8", 5945000, 5953000, 'green-season', UUID(2113), true)
+// Додавання відео каналів
+for (const band in channels) {
+  channels[band].forEach((frequency, index) => {
+    addQuadVideo(`${band}${index + 1}`, frequency, 'green-season analog', UUID(UUID_video(band)));
+  });
+}
 
-generateBandV2("1 Канал FPV відео", "F1", 5740000, 5748000, 'green-season', UUID(2114), true)
-generateBandV2("2 Канал FPV відео", "F2", 5760000, 5768000, 'green-season', UUID(2114), true)
-generateBandV2("3 Канал FPV відео", "F3", 5780000, 5788000, 'green-season', UUID(2114), true)
-generateBandV2("4 Канал FPV відео", "F4", 5800000, 5808000, 'green-season', UUID(2114), true)
-generateBandV2("5 Канал FPV відео", "F5", 5820000, 5828000, 'green-season', UUID(2114), true)
-generateBandV2("6 Канал FPV відео", "F6", 5840000, 5848000, 'green-season', UUID(2114), true)
-generateBandV2("7 Канал FPV відео", "F7", 5860000, 5868000, 'green-season', UUID(2114), true)
-generateBandV2("8 Канал FPV відео", "F8", 5880000, 5888000, 'green-season', UUID(2114), true)
-
-generateBandV2("1 Канал FPV відео", "R1", 5658000, 5666000, 'green-season', UUID(2115), true)
-generateBandV2("2 Канал FPV відео", "R2", 5695000, 5703000, 'green-season', UUID(2115), true)
-generateBandV2("3 Канал FPV відео", "R3", 5732000, 5740000, 'green-season', UUID(2115), true)
-generateBandV2("4 Канал FPV відео", "R4", 5769000, 5777000, 'green-season', UUID(2115), true)
-generateBandV2("5 Канал FPV відео", "R5", 5806000, 5814000, 'green-season', UUID(2115), true)
-generateBandV2("6 Канал FPV відео", "R6", 5843000, 5851000, 'green-season', UUID(2115), true)
-generateBandV2("7 Канал FPV відео", "R7", 5880000, 5888000, 'green-season', UUID(2115), true)
-generateBandV2("8 Канал FPV відео", "R8", 5917000, 5925000, 'green-season', UUID(2115), true)
-
-generateBandV2("1 Канал FPV відео", "L1", 5362000, 5370000, 'green-season', UUID(2116), true)
-generateBandV2("2 Канал FPV відео", "L2", 5399000, 5407000, 'green-season', UUID(2116), true)
-generateBandV2("3 Канал FPV відео", "L3", 5436000, 5444000, 'green-season', UUID(2116), true)
-generateBandV2("4 Канал FPV відео", "L4", 5473000, 5481000, 'green-season', UUID(2116), true)
-generateBandV2("5 Канал FPV відео", "L5", 5510000, 5518000, 'green-season', UUID(2116), true)
-generateBandV2("6 Канал FPV відео", "L6", 5547000, 5555000, 'green-season', UUID(2116), true)
-generateBandV2("7 Канал FPV відео", "L7", 5584000, 5592000, 'green-season', UUID(2116), true)
-generateBandV2("8 Канал FPV відео", "L8", 5621000, 5629000, 'green-season', UUID(2116), true)
-
-generateBandV2("1 Канал FPV відео", "X1", 4990000, 4998000, 'green-season', UUID(2117), true)
-generateBandV2("2 Канал FPV відео", "X2", 5020000, 5028000, 'green-season', UUID(2117), true)
-generateBandV2("3 Канал FPV відео", "X3", 5050000, 5058000, 'green-season', UUID(2117), true)
-generateBandV2("4 Канал FPV відео", "X4", 5080000, 5088000, 'green-season', UUID(2117), true)
-generateBandV2("5 Канал FPV відео", "X5", 5110000, 5118000, 'green-season', UUID(2117), true)
-generateBandV2("6 Канал FPV відео", "X6", 5140000, 5148000, 'green-season', UUID(2117), true)
-generateBandV2("7 Канал FPV відео", "X7", 5170000, 5178000, 'green-season', UUID(2117), true)
-generateBandV2("8 Канал FPV відео", "X8", 5200000, 5208000, 'green-season', UUID(2117), true)
-
-
+addQuad(`DJI Video`, 2400, 2484, ``, videoDigital, 2200);
 addQuad(`PHANTOM 3`, 2400, 2476, 30, ППРЧ, 2200);
 addQuad(`MAVIK 3`, 2400, 2483.5, ``, ППРЧ, 2200);
+
+addQuad(`DJI Video`, 5150, 5250 , ``, videoDigital, 2200);
+addQuad(`DJI Video`, 5725, 5850  , ``, videoDigital, 2200);
 addQuad(`MAVIK 3`, 5725, 5850, ``, videoDigital, 2200);
 addQuad(`MATRIX 300`, 2400, 2483.5, ``, ППРЧ, 2200);
 addQuad(`MATRIX 300`, 5725, 5850, ``, videoDigital, 2200);

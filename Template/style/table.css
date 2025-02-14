@@ -84,11 +84,11 @@ body.timeline-vertical .vis-panel.vis-bottom .vis-time-axis.vis-foreground >.vis
     text-align: right;
 }
 
-/* body.timeline-vertical .vis-bottom .vis-panel.vis-bottom .vis-time-axis.vis-foreground >.vis-text > div{
+body.timeline-vertical .vis-bottom .vis-panel.vis-bottom .vis-time-axis.vis-foreground >.vis-text > div{
     rotate: 90deg;    
     top: 44px;
     text-align: left;
-} */
+}
 
 
 body.timeline-vertical .vis-time-axis{
